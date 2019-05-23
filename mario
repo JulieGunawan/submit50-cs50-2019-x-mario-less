@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <cs50.h>
+
+int get_between_range(string prompt);
+void print_pattern(int number);
+
+int main(void){
+    int input = get_between_range("Please enter a height between 1 and 8: ");
+  
+    print_pattern(input); 
+}
+
+int get_between_range(string prompt) {
+    int n;
+    do {
+    n = get_int("%s",prompt);
+    }
+    while (n<1 || n>8);
+    
+    return n;
+}
+
+void print_pattern(int number) {
+     for (int i=number-1; i>=0; i--) {
+       for (int j=0; j<i; j++) {
+                printf(" ");
+            }
+        for (int k=number-i; k>0; k--){
+            printf("#");
+        }
+        printf("\n");
+    }
+}
